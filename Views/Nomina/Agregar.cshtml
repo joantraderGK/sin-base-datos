@@ -1,0 +1,62 @@
+﻿@using Nomina.Models;
+@using Nomina.Controllers;
+@using Nomina.Clases;
+@model Nomina1
+
+@{
+    ViewData["Title"] = "Agregar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Agregar Nomina</h1>
+<hr />
+<h3 class="text-center text-light bg-dark" >Formulario</h3>
+<form asp-controller="Nomina" asp-action="Agregar" method="post">
+    <div class="row">
+    <div class="col-md-6">
+       
+        
+            <div>
+                @Html.LabelFor(p=>p.Sueldo_bruto)
+                @Html.TextBoxFor(p=>p.Sueldo_bruto,new {@class="form-control"})
+                @Html.ValidationMessageFor(p=>p.Sueldo_bruto, null ,new {@class="text-danger"})
+
+            </div>
+
+            <div>
+                @Html.LabelFor(p=>p.Sueldo_neto)
+                @Html.TextBoxFor(p=>p.Sueldo_neto,new {@class="form-control"})
+                @Html.ValidationMessageFor(p=>p.Sueldo_neto,null,new{@class="danger"})
+            </div>
+
+            <div>
+                @Html.LabelFor(p=>p.Tss)
+                @Html.TextBoxFor(p=>p.Tss,new {@class="form-control"})
+                @Html.ValidationMessageFor(p=>p.Tss,null,new{@class="danger"})
+            </div>
+            <div>
+                @Html.LabelFor(p=>p.Isr)
+                @Html.TextBoxFor(p=>p.Isr,new {@class="form-control"})
+                @Html.ValidationMessageFor(p=>p.Isr,null,new{@class="danger"})
+            </div>
+
+            <div>
+            
+                    @Html.LabelFor(p=>p.Fecha_creación)
+                    @Html.EditorFor(p=>p.Fecha_creación, new  {htmlAttributes = new {@class="form-control"} })
+            </div>
+            <div>
+                    @Html.LabelFor(p=>p.Fecha_nomina)
+                    @Html.EditorFor(p=>p.Fecha_nomina, new  {htmlAttributes = new {@class="form-control"} })
+            </div>
+            <br />
+            <div style="margin:auto">
+                <input type="submit" class="btn btn-primary" value="Guarda" />
+            </div>
+
+            
+        
+    </div>
+</div>
+
+</form>

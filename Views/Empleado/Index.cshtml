@@ -1,0 +1,61 @@
+﻿@using Nomina.Clases;
+@model ICollection<Empleado>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Empleado</h1>
+<br />
+<div style="text-align:start;">
+    @Html.ActionLink("Agregar","AgregarEmpleado","Empleado", null,new {@class="btn btn-primary"})
+</div>
+<table class="table table-primary"> 
+    <thead class="tab-pane" >
+
+        <tr class="table-dark">
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>apellido</th>
+            <th>Edad</th>
+            <th>Fecha_Nacimientos</th>
+            <th>Sexo</th>
+            <th>Salario</th>
+            <th>pais</th>
+            <th>Provicia</th>
+            <th>Municipio</th>
+            <th>Barrio</th>
+            <th>Si_posse_licencia</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Nombre</td>
+                <td>@item.apellido</td>
+                <td>@item.Edad</td>
+                <td>@item.fecha_nacimientos</td>
+                <td>@item.sexo</td>
+                <td>@item.salario</td>
+                <td>@item.pais</td>
+                <td>@item.provincia</td>
+                <td>@item.municipio</td>
+                <td>@item.barrios</td>
+                <td>@item.si_posee_licencia</td>
+                <td>
+                     <a class="btn btn-light"href="~Empleado/Editar/@item.Id">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger"href="~Empleado/Eliminar/@item.Id">Eliminar</a>
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+    

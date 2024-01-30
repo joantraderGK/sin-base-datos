@@ -1,0 +1,49 @@
+﻿@using Nomina.Clases;
+@model ICollection<Nomina1>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1  >Nomina</h1>
+<hr />
+@* <button class="mb-2 btn btn-primary" >Agregar</button>
+<a  class="mb-2 btn btn-success"   asp-action="Agregar" asp-controller="Nomina" >Formulario</a> *@
+
+@Html.ActionLink("Agregar","Agregar","Nomina", null,new {@class="btn btn-primary"})
+
+<table class=" table  table-info">
+    <thead class=" table   table-active">
+
+        <tr>
+            <th>Sueldo Bruto</th>
+            <th>Sueldo Neto</th>
+            <th>TSS</th>
+            <th>ISR</th>
+            <th>Fecha_Creacion</th>
+            <th>Fecha_Nomina</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Sueldo_bruto</td>
+                <td>@item.Sueldo_neto</td>
+                <td>@item.Tss</td>
+                <td>@item.Isr</td>
+                <td>@item.Fecha_creación</td>
+                <td>@item.Fecha_nomina</td>
+
+                <td>
+                    <a class="btn btn-light" href="~Nomina1/Editar/@item.Sueldo_bruto">Editar</a>
+                    <a class="btn btn-danger" href="~Nomina1/Eliminar/@item.Sueldo_bruto">Eliminar</a>
+                </td>
+
+            </tr>
+            
+
+           
+        }
+    </tbody>
+</table>
